@@ -17,5 +17,8 @@ RUN npm run build
 # Set the base image for the run stage (leverage nginx as web server)
 FROM nginx
 
+# Expose port 80 in the production environment
+EXPOSE 80
+
 # Copy, from builder phase, the build folder into the containers app/build folder
 COPY --from=builder /app/build /usr/share/nginx/html
